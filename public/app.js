@@ -2,12 +2,13 @@
 var learnjs = {};
 
 learnjs.problemView = function(problemNumber) {
-  var title = 'Problem #' + problemNumber + 'comming soon';
-  return $('<div class= "problem-view">').text(title);
+  var view = $('.templates .problem-view').clone();
+  view.find('.title').text('Problem #'+problemNumber + ' Commming soon!');
+  return view;
 }
 learnjs.showView = function(hash) {
   var routes = {
-    '#problem-1': learnjs.problemView
+    '#problem': learnjs.problemView
   };
   var hashParts = hash.split('-');
   var viewFn = routes[hashParts[0]];
